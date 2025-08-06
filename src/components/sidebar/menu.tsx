@@ -1,5 +1,4 @@
 import { BadgeCent, Boxes, CreditCard, DollarSign, FileText, Home, icons, Layers, Package, ReceiptText, Ruler, ShoppingCart, Truck, Users } from "lucide-react";
-import Link from "next/link";
 import SidebarLink from "./sidebar-link";
 
 
