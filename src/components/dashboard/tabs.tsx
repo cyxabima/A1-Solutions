@@ -1,9 +1,10 @@
 import React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import DashboardReport from './report'
+import { apiUrl } from '@/lib/config'
 
 async function DashboardTabs() {
-    const res = await fetch("http://localhost:8000/api/v1/sales/shop/6890bbfeca9339b8fd22fdc0")
+    const res = await fetch(`${apiUrl}/api/v1/sales/shop/6890bbfeca9339b8fd22fdc0`)
     if (!res.ok) {
         return null
     }

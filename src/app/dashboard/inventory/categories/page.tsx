@@ -1,8 +1,9 @@
 import React from 'react'
 import { Category, columns } from './columns'
 import { DataTable } from '@/components/data-table';
+import { apiUrl } from '@/lib/config';
 async function getCategories(): Promise<Category[]> {
-    const res = await fetch("http://localhost:8000/api/v1/categories")
+    const res = await fetch(`${apiUrl}/api/v1/categories`)
 
     const data = await res.json();
     return data.data

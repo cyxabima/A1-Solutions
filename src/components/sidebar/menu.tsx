@@ -11,7 +11,7 @@ const menuItems = [
     {
         label: "Inventory",
         icon: <Boxes size={18} />,
-        children: [
+        nested: [
             { label: "Products", icon: <Package size={18} />, href: "/dashboard/inventory/products" },
             { label: "Categories", icon: <Layers size={18} />, href: "/dashboard/inventory/categories" },
             { label: "Units", icon: <Ruler size={18} />, href: "/dashboard/inventory/units" },
@@ -21,7 +21,7 @@ const menuItems = [
     {
         label: "Sale",
         icon: <ShoppingCart size={18} />,
-        children: [
+        nested: [
             { label: "Sales List", icon: <ReceiptText size={18} />, href: "/dashboard/sales/list" },
             { label: "Create Sale", icon: <FileText size={18} />, href: "/dashboard/sales/create" },
             { label: "Customers", icon: <Users size={18} />, href: "/dashboard/sales/customers" },
@@ -31,7 +31,7 @@ const menuItems = [
     {
         label: "Purchase",
         icon: <Truck size={18} />,
-        children: [
+        nested: [
             { label: "Purchase List", icon: <ReceiptText size={18} />, href: "/dashboard/purchases/list" },
             { label: "Add Purchase", icon: <FileText size={18} />, href: "/dashboard/purchases/add" },
             { label: "Suppliers", icon: <Truck size={18} />, href: "/dashboard/purchases/suppliers" },
@@ -40,7 +40,7 @@ const menuItems = [
     {
         label: "Expense",
         icon: <DollarSign size={18} />,
-        children: [
+        nested: [
             { label: "Expense List", icon: <ReceiptText size={18} />, href: "/dashboard/expenses/list" },
             { label: "Add Expense", icon: <FileText size={18} />, href: "/dashboard/expenses/add" },
         ],
@@ -60,7 +60,7 @@ function Menu() {
                     href={i.href || ""}
                     icon={i.icon}
                     label={i.label}
-                    children={i.children}
+                    nested={i.nested}
                 />
 
             ))}

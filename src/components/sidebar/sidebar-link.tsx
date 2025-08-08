@@ -10,11 +10,11 @@ interface SidebarLinkProps {
     href: string;
     icon: ReactNode;
     label: string;
-    children?: SidebarLinkProps[]
+    nested?: SidebarLinkProps[]
     classname?: string
 }
 
-function SidebarLink({ href, icon, label, children, classname }: SidebarLinkProps) {
+function SidebarLink({ href, icon, label, nested, classname }: SidebarLinkProps) {
     const pathName = usePathname();
     const isActive = pathName == href;
     const [isOpen, setIsOpen] = useState(false)
@@ -22,7 +22,7 @@ function SidebarLink({ href, icon, label, children, classname }: SidebarLinkProp
                     justify-start gap-4 p-2 rounded-lg transition-colors hover:bg-primary w-full`, isActive ? "bg-primary" : "", classname)
 
 
-    if (children && children.length > 0) {
+    if (nested && nested.length > 0) {
         return (
             <div className=''>
                 <button className={clsx(baseClasses)}
@@ -38,7 +38,7 @@ function SidebarLink({ href, icon, label, children, classname }: SidebarLinkProp
                 </button>
                 {isOpen && (
                     <div className="ml-3 mt-1 flex flex-col gap-1">
-                        {children.map(child => (
+                        {nested.map(child => (
                             <SidebarLink key={child.label} {...child} />
                         ))}
                     </div>
