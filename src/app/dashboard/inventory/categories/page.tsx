@@ -4,7 +4,9 @@ import { DataTable } from '@/components/data-table';
 import { apiUrl } from '@/lib/config';
 async function getCategories(): Promise<Category[]> {
     const res = await fetch(`${apiUrl}/api/v1/categories`)
-
+    if (!res.ok) {
+        return []
+    }
     const data = await res.json();
     return data.data
 }

@@ -4,6 +4,9 @@ import { DataTable } from '@/components/data-table';
 import { apiUrl } from '@/lib/config';
 async function getUnits(): Promise<Unit[]> {
     const res = await fetch(`${apiUrl}/api/v1/units`)
+    if (!res.ok) {
+        return []
+    }
     const data = await res.json();
     return data.data
 }
