@@ -2,6 +2,7 @@ import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import { Button } from '../ui/button'
+import ThemeToggle from '../theme-toggle'
 
 function Profile() {
     return (
@@ -18,6 +19,7 @@ function Profile() {
                     <h2 className='text-orange-400 dark:text-white'>Owner</h2>
                 </div>
                 <Button className='text-white'>Logout</Button>
+                <ThemeToggle />
             </PopoverContent>
         </Popover>
     )

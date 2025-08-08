@@ -1,6 +1,5 @@
 import React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import SummaryCard from './summary-card'
 import DashboardReport from './report'
 
 async function DashboardTabs() {

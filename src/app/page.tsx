@@ -10,10 +10,10 @@ export default function Home() {
       <div className="flex flex-col gap-2  w-100 justify-center
       items-center">
         <Link href={"/login"}>
-          <Button variant={"outline"} className=" text-white cursor-pointer min-w-32">Login</Button>
+          <Button variant={"outline"} className=" cursor-pointer min-w-32">Login</Button>
         </Link>
         <Link href={"/dashboard"}>
-          <Button variant={"outline"} className="text-white cursor-pointer min-w-32">DashBoard</Button>
+          <Button variant={"outline"} className=" cursor-pointer min-w-32">DashBoard</Button>
         </Link>
       </div>
     </div>
