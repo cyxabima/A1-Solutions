@@ -58,7 +58,7 @@ export const columns: ColumnDef<Brand>[] = [
     {
         id: "actions",
         cell: ({ row }) => {
-            const product = row.original
+            const brand = row.original
 
             return (
                 <DropdownMenu>
@@ -71,7 +71,7 @@ export const columns: ColumnDef<Brand>[] = [
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel className="text-orange-400 font-bold">Actions</DropdownMenuLabel>
                         <DropdownMenuItem
-                            onClick={() => navigator.clipboard.writeText(product.id)}
+                            onClick={() => navigator.clipboard.writeText(brand.id)}
                         >
                             Copy brand ID
                         </DropdownMenuItem>

@@ -12,3 +12,14 @@ export function formatAmount(amount: number) {
     maximumFractionDigits: 0
   });
 }
+
+// from Internet 
+export function generateSlug(name: string) {
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')         // spaces → hyphen
+    .replace(/[^\w-]+/g, '')      // remove non-alphanumeric except hyphen
+    .replace(/--+/g, '-');        // collapse multiple hyphens
+}
+

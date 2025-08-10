@@ -22,10 +22,10 @@ const menuItems = [
         label: "Sale",
         icon: <ShoppingCart size={18} />,
         nested: [
-            { label: "Sales List", icon: <ReceiptText size={18} />, href: "/dashboard/sales/list" },
-            { label: "Create Sale", icon: <FileText size={18} />, href: "/dashboard/sales/create" },
-            { label: "Customers", icon: <Users size={18} />, href: "/dashboard/sales/customers" },
+            // { label: "Sales List", icon: <ReceiptText size={18} />, href: "/dashboard/sales/list" },
+            // { label: "Create Sale", icon: <FileText size={18} />, href: "/dashboard/sales/create" },
             { label: "Invoices", icon: <CreditCard size={18} />, href: "/dashboard/sales/invoices" },
+            { label: "Customers", icon: <Users size={18} />, href: "/dashboard/sales/customers" },
         ],
     },
     {

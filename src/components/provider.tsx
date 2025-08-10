@@ -10,6 +10,7 @@ function Providers({ children }: { children: React.ReactNode }) {
             attribute='class'
             defaultTheme='system'
             disableTransitionOnChange>
+            <ToasterProvider />
             {children}
 
 
