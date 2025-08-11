@@ -6,8 +6,15 @@ import { apiUrl } from '@/lib/config'
 async function DashboardTabs() {
     const res = await fetch(`${apiUrl}/api/v1/sales/shop/6890bbfeca9339b8fd22fdc0`)
     if (!res.ok) {
-        return null
+        try {
+
+            return <div>{await res.json()}</div>
+        } catch (error) {
+
+            return <div>{String(res)}</div>
+        }
     }
+
     const result = await res.json()
     return (
         <Tabs defaultValue="today" className="w-full">
