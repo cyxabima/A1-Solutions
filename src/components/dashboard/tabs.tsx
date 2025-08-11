@@ -11,7 +11,7 @@ async function DashboardTabs() {
             return <div>{await res.json()}</div>
         } catch (error) {
 
-            return <div>{String(res)}</div>
+            return <div>{res}</div>
         }
     }
 
