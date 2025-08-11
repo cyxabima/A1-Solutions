@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import SummaryCard from './summary-card'
 
@@ -7,7 +8,7 @@ type DashboardReportProps = {
     paid: number;
     // profit:number;
 }
-async function DashboardReport({ data }: { data: DashboardReportProps }) {
+function DashboardReport({ data }: { data: DashboardReportProps }) {
     return (
         <div>
 

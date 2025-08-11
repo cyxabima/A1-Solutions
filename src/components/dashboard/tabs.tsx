@@ -1,21 +1,42 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import DashboardReport from './report'
 import { apiUrl } from '@/lib/config'
+import { toast } from 'sonner'
 
-async function DashboardTabs() {
-    const res = await fetch(`${apiUrl}/api/v1/sales/shop/6890bbfeca9339b8fd22fdc0`)
-    if (!res.ok) {
-        try {
-
-            return <div>{await res.json()}</div>
-        } catch (error) {
-
-            return <div>{res}</div>
+function DashboardTabs() {
+    const [result, setResult] = useState({
+        data: {
+            today: {
+                total: 0,
+                balance: 0,
+                paid: 0,
+            },
+            thisWeek: {
+                total: 0,
+                balance: 0,
+                paid: 0,
+            },
+            thisMonth: {
+                total: 0,
+                balance: 0,
+                paid: 0,
+            }
         }
-    }
+    })
 
-    const result = await res.json()
+    useEffect(() => {
+        (async () => {
+            fetch(`${apiUrl}/api/v1/sales/shop/6890bbfeca9339b8fd22fdc0`)
+                .then((res) => res.json())
+                .then((res) => { setResult(res) })
+                .catch((error) => { toast(String(error)) })
+        })();
+    }, [])
+
+
+
     return (
         <Tabs defaultValue="today" className="w-full">
             <TabsList className='m-auto'>
