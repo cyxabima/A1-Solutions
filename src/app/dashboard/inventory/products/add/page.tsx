@@ -14,9 +14,9 @@ import addProduct from "@/actions/add-product";
 import { generateSlug } from "@/lib/utils";
 
 export default function AddNewProduct() {
-    const [suppliers, setSuppliers] = useState<any[]>([]);
-    const [units, setUnits] = useState<any[]>([]);
-    const [brands, setBrands] = useState<any[]>([]);
+    const [suppliers, setSuppliers] = useState<[]>([]);
+    const [units, setUnits] = useState<[]>([]);
+    const [brands, setBrands] = useState<[]>([]);
     const [categories, setCategories] = useState<any[]>([]);
 
     const { register, handleSubmit, control, formState: { errors } } = useForm<ProductInput>({

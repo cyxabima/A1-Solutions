@@ -1,4 +1,4 @@
-import { BadgeCent, Boxes, CreditCard, DollarSign, FileText, Home, icons, Layers, Package, ReceiptText, Ruler, ShoppingCart, Truck, Users } from "lucide-react";
+import { BadgeCent, Boxes, CreditCard, DollarSign, FileText, Home, Layers, Package, ReceiptText, Ruler, ShoppingCart, Truck, Users } from "lucide-react";
 import SidebarLink from "./sidebar-link";
 
 
@@ -33,7 +33,7 @@ const menuItems = [
         icon: <Truck size={18} />,
         nested: [
             { label: "Purchase List", icon: <ReceiptText size={18} />, href: "/dashboard/purchases/list" },
-            { label: "Add Purchase", icon: <FileText size={18} />, href: "/dashboard/purchases/add" },
+            // { label: "Add Purchase", icon: <FileText size={18} />, href: "/dashboard/purchases/add" },
             { label: "Suppliers", icon: <Truck size={18} />, href: "/dashboard/purchases/suppliers" },
         ],
     },

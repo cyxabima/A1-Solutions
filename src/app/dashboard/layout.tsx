@@ -1,9 +1,5 @@
 import Navbar from "@/components/navbar/navbar";
-import Menu from "@/components/sidebar/menu";
 import SideBarTrigger from "@/components/sidebar/sidebar-tigger";
-import { MenuIcon, X } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 
 export default function RootLayout({
     children,

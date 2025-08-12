@@ -2,9 +2,7 @@
 
 import { apiUrl } from "@/lib/config"
 import { ProductInput, productSchema } from "@/lib/schema"
-import { error } from "console"
 import { revalidateTag } from "next/cache"
-import { success } from "zod"
 
 
 
