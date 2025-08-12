@@ -55,7 +55,11 @@ const addNew = async (name: string, initialSate: AddNewState, formData: FormData
         )
 
 
-    } catch (error) {
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+
+            return { errors: { formError: [error.message] } }
+        }
         return { errors: { formError: ["server is down"] } }
     }
 

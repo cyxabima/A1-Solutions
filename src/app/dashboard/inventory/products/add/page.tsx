@@ -1,5 +1,5 @@
 "use client"
-import { Combobox } from "@/components/combo-box";
+import { Combobox, ComboboxItem } from "@/components/combo-box";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,12 +14,12 @@ import addProduct from "@/actions/add-product";
 import { generateSlug } from "@/lib/utils";
 
 export default function AddNewProduct() {
-    const [suppliers, setSuppliers] = useState<[]>([]);
-    const [units, setUnits] = useState<[]>([]);
-    const [brands, setBrands] = useState<[]>([]);
-    const [categories, setCategories] = useState<any[]>([]);
+    const [suppliers, setSuppliers] = useState<ComboboxItem[]>([]);
+    const [units, setUnits] = useState<ComboboxItem[]>([]);
+    const [brands, setBrands] = useState<ComboboxItem[]>([]);
+    const [categories, setCategories] = useState<ComboboxItem[]>([]);
 
-    const { register, handleSubmit, control, formState: { errors } } = useForm<ProductInput>({
+    const { register, handleSubmit, control, formState: { errors, isSubmitting }, reset } = useForm<ProductInput>({
         resolver: zodResolver(productSchema),
     });
 
@@ -59,9 +59,9 @@ export default function AddNewProduct() {
 
         }
         const result = await addProduct(new_data);
-        console.log("hey man i am here on client")
         if (result.success) {
             toast.success(result.message || "Product created successfully")
+            reset()
         } else {
             // If `error` is an array (Zod validation), join messages as i am using .issue which gives array of objects of errors
             if (Array.isArray(result.error)) {
@@ -178,7 +178,8 @@ export default function AddNewProduct() {
                     {errors.description && <p className="text-red-500">{errors.description.message}</p>}
                 </div>
 
-                <Button type="submit" className="text-white col-span-full">Submit</Button>
+                <Button type="submit" className="text-white col-span-full" disabled={isSubmitting}
+                >{isSubmitting ? "Adding Product..." : "Add Product"}</Button>
             </form>
         </div>
     );

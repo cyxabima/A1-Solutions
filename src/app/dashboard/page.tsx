@@ -1,4 +1,3 @@
-import SummaryCard from '@/components/dashboard/summary-card'
 import DashboardTabs from '@/components/dashboard/tabs'
 import React from 'react'
 

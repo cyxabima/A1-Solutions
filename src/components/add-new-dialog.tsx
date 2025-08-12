@@ -11,7 +11,6 @@ import {
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Button } from './ui/button';
-import { toast } from 'sonner';
 import addNew from '@/actions/add-new';
 
 type AddNewProp = {

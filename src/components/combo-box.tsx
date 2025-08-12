@@ -19,7 +19,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 
-type ComboboxItem = {
+export type ComboboxItem = {
     id: string
     name: string
 }
