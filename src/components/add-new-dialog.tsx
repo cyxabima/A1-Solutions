@@ -20,7 +20,7 @@ function AddNew({ name }: AddNewProp) {
     const [formState, action] = useActionState(addNew.bind(null, name), { errors: {} })
     return (
         <Dialog>
-            <DialogTrigger><Plus className='' /></DialogTrigger>
+            <DialogTrigger className='cursor-pointer' ><Plus /></DialogTrigger>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Add new {name}</DialogTitle>
