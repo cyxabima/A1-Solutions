@@ -18,14 +18,14 @@ function DashboardReport({ data }: { data: DashboardReportProps }) {
                 <SummaryCard type={"Paid"} quantity={data.paid} />
                 <SummaryCard type={"Profits"} quantity={data.balance} />
 
-                <div className='w-full'>
+                {/* <div className='w-full'>
                     <div className='w-full lg:w-1/3 bg-background flex flex-col gap-3 rounded-xl p-4 justify-center items-center'>
                     </div>
                     <div className='w-full lg:w-2/3'>
 
                     </div>
 
-                </div>
+                </div> */}
             </div>
 
         </div>

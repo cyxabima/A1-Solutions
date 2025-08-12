@@ -23,3 +23,9 @@ export function generateSlug(name: string) {
     .replace(/--+/g, '-');        // collapse multiple hyphens
 }
 
+
+export function generateProductCode(categoryName: string, brandName: string, sku: string) {
+  const categoryAbbr = categoryName.replace(/\s+/g, '').substring(0, 3).toUpperCase();
+  const brandAbbr = brandName.replace(/\s+/g, '').substring(0, 3).toUpperCase();
+  return `${categoryAbbr}-${brandAbbr}-${sku.toUpperCase()}`;
+}
