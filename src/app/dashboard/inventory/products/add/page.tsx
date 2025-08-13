@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { apiUrl } from "@/lib/config";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { productSchema, ProductInput } from "@/lib/schema";
+import { productSchema, ProductInput } from "@/lib/schema/product-schema";
 import { Controller, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";

@@ -1,7 +1,7 @@
 "use server"
 
 import { apiUrl } from "@/lib/config"
-import { ProductInput, productSchema } from "@/lib/schema"
+import { ProductInput, productSchema } from "@/lib/schema/product-schema"
 import { revalidateTag } from "next/cache"
 
 
