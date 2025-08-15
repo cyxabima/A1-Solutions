@@ -9,6 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@/components/ui/button'
 import { apiUrl } from '@/lib/config'
 import { toast } from 'sonner'
+import addCustomer from '@/actions/add-customer'
 
 function AddCustomer() {
     const GenderList: selectItems[] = [
@@ -36,36 +37,16 @@ function AddCustomer() {
         resolver: zodResolver(CustomerSchema)
     });
 
-    const addCustomer = async (data: CustomerInput) => {
-        // MY QUESTION IS STILL THERE DO I NEED SERVER SITE API CALL AUR I CAN DO API CALL HERE
-        // SO I AM CALLING HERE UNLIKE THE ADD PRODUCT
-        try {
+    const onSubmit = async (data: CustomerInput) => {
 
-            const res = await fetch(`${apiUrl}/api/v1/customers`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            })
+        const result = await addCustomer(data)
 
-            const result = await res.json()
-            if (!res.ok) {
-                throw new Error(result.message)
-            }
-            else {
-                toast.success(result.message)
-            }
-        } catch (error) {
-            if (error instanceof Error) {
-                toast.error(error.message)
-            } else {
-
-                toast.error("Something Went Wrong")
-            }
+        if (result.success) {
+            toast.success(result.message)
+            reset()
+        } else {
+            toast.error(result.error)
         }
-        console.log(data)
-        reset()
     }
 
 
@@ -73,7 +54,7 @@ function AddCustomer() {
     return (
         <div className="container mx-auto px-4">
             <h1 className="text-3xl font-bold mb-6">Add New Customer</h1>
-            <form onSubmit={handleSubmit(addCustomer)} className='grid grid-cols-1 md:grid-cols-10 gap-4'>
+            <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-1 md:grid-cols-10 gap-4'>
                 <div className="md:col-span-5">
                     <Label htmlFor='first-name'>First Name*</Label>
                     <Input type='text' id='first-name' {...register('firstName')} />

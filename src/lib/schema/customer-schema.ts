@@ -1,4 +1,4 @@
-import { email, z } from 'zod'
+import { z } from 'zod'
 
 export const CustomerSchema = z.object({
     firstName: z.
@@ -20,9 +20,9 @@ export const CustomerSchema = z.object({
         "OTHER"], "Customer Type is incorrect"),
     phone: z.
         string().
-        regex(/^\+92\d{10}$/, 'Invalid phone number!'),
+        regex(/^\+92\d{10}$/, 'Invalid phone number!').or(z.literal("")),
     email: z.
-        email({ error: 'Invalid Email' }).optional(),
+        email({ error: 'Invalid Email' }).optional().or(z.literal("")),
     country: z.
         string()
         .min(3, "Country name must be at least 3 characters long")

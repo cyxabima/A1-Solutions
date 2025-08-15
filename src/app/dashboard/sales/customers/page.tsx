@@ -5,7 +5,11 @@ import { apiUrl } from '@/lib/config';
 import Link from 'next/link';
 import { Plus } from 'lucide-react';
 async function getCustomers(): Promise<Customer[]> {
-    const res = await fetch(`${apiUrl}/api/v1/customers`)
+    const res = await fetch(`${apiUrl}/api/v1/customers`, {
+        next: {
+            tags: ["customers"]
+        }
+    })
     if (!res.ok) {
         return []
     }
