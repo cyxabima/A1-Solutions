@@ -32,7 +32,7 @@ const menuItems = [
         label: "Purchase",
         icon: <Truck size={18} />,
         nested: [
-            { label: "Purchase List", icon: <ReceiptText size={18} />, href: "/dashboard/purchases/list" },
+            { label: "Purchase Order", icon: <ReceiptText size={18} />, href: "/dashboard/purchases/orders" },
             // { label: "Add Purchase", icon: <FileText size={18} />, href: "/dashboard/purchases/add" },
             { label: "Suppliers", icon: <Truck size={18} />, href: "/dashboard/purchases/suppliers" },
         ],

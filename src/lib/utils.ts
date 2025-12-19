@@ -29,3 +29,16 @@ export function generateProductCode(categoryName: string, brandName: string, sku
   const brandAbbr = brandName.replace(/\s+/g, '').substring(0, 3).toUpperCase();
   return `${categoryAbbr}-${brandAbbr}-${sku.toUpperCase()}`;
 }
+
+
+
+export function generateInvoiceNumber() {
+  const now = new Date();
+  const datePart = now.toISOString().slice(0, 10).replace(/-/g, "")
+  const hour = String(now.getHours()).padStart(2, "0")
+  const min = String(now.getMinutes()).padStart(2, "0")
+  const sec = String(now.getSeconds()).padStart(2, "0")
+  const timePart = `${hour}${min}${sec}`
+
+  return `INV-${datePart}-${timePart}`
+}
