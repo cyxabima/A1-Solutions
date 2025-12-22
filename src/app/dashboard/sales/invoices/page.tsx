@@ -5,12 +5,21 @@ import { apiUrl } from '@/lib/config';
 import Link from 'next/link';
 import { Plus } from 'lucide-react';
 async function getSales(): Promise<Sale[]> {
-    const res = await fetch(`${apiUrl}/api/v1/sales`)
-    if (!res.ok) {
-        return []
+    try {
+        const res = await fetch(`${apiUrl}/api/v1/sales`)
+        if (!res.ok) {
+            return []
+        }
+        const data = await res.json();
+        return data.data
+
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            console.error("Error: ", error.message);
+        }
+        console.error("Something went wrong")
+        return [];
     }
-    const data = await res.json();
-    return data.data
 }
 
 async function ProductPage() {

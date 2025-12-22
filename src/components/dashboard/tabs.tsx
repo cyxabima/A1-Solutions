@@ -26,12 +26,32 @@ function DashboardTabs() {
         }
     })
 
+    async function getSalesReport() {
+        try {
+            const res = await fetch(`${apiUrl}/api/v1/sales/shop/6890bbfeca9339b8fd22fdc0`)
+            if (!res.ok) {
+                const errorData = await res.json().catch(() => ({}));
+                throw new Error(errorData.message || `Error ${res.status}: ${res.statusText}`);
+            }
+            const result = await res.json();
+            setResult(result);
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                toast.error(error.message);
+            } else {
+                toast.error("unexpected error occur");
+            }
+            console.error("Sales Report Fetch Error:", error);
+        }
+    }
+
     useEffect(() => {
         (async () => {
-            fetch(`${apiUrl}/api/v1/sales/shop/6890bbfeca9339b8fd22fdc0`)
-                .then((res) => res.json())
-                .then((res) => { setResult(res) })
-                .catch((error) => { toast(String(error)) })
+            // fetch(`${apiUrl}/api/v1/sales/shop/6890bbfeca9339b8fd22fdc0`)
+            //     .then((res) => res.json())
+            //     .then((res) => { setResult(res) })
+            //     .catch((error) => { toast(String(error)) })
+            getSalesReport();
         })();
     }, [])
 

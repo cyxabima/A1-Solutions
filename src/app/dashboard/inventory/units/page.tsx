@@ -4,12 +4,20 @@ import { DataTable } from '@/components/data-table';
 import { apiUrl } from '@/lib/config';
 import AddNew from '@/components/add-new-dialog';
 async function getUnits(): Promise<Unit[]> {
-    const res = await fetch(`${apiUrl}/api/v1/units`, { next: { tags: ['units'] } })
-    if (!res.ok) {
-        return []
+    try {
+        const res = await fetch(`${apiUrl}/api/v1/units`, { next: { tags: ['units'] } });
+        if (!res.ok) {
+            return [];
+        }
+        const data = await res.json();
+        return data.data
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            console.error("Error: ", error.message);
+        }
+        console.error("Something went wrong")
+        return [];
     }
-    const data = await res.json();
-    return data.data
 }
 
 async function ProductPage() {
